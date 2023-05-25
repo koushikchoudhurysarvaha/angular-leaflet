@@ -1,6 +1,5 @@
 import { 
   Component, 
-  OnInit, 
   OnDestroy, 
   Input, 
   Output, 
@@ -10,16 +9,11 @@ import {
 } from '@angular/core';
 import { 
   Map, Control, 
-  DomUtil, 
-  ZoomAnimEvent , 
-  Layer, 
   MapOptions, 
   tileLayer, 
   latLng, 
   FeatureGroup, 
   featureGroup,
-  DrawEvents,
-  Polygon,
   Circle
 } from 'leaflet';
 import * as L from 'leaflet';
@@ -62,7 +56,7 @@ L.Edit.Circle = L.Edit.CircleMarker.extend({
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css',]
 })
-export class MapComponent implements OnDestroy {
+export class MapComponent implements OnDestroy, OnChanges {
   public static DEFAULT_SHAPE_OPACITY = 0.2;
 
   @Input() crs: L.CRS = L.CRS.EPSG3857;
