@@ -1,0 +1,18 @@
+<div class="fs-container">
+  <div class="map-box">
+    <app-map
+    [crs]="selectedCRS"
+    (map$)="receiveMap($event)"
+    (zoom$)="receiveZoom($event)"
+    id="main-map"
+  >
+  </app-map>
+  </div>
+  <div class="extra-box">
+    <select (change)="onMapBaseChange($event)">
+      <option disabled selected>Choose Base</option>
+      <option *ngFor="let c of CRSs" value={{c.text}}>{{c.text}}</option>
+    </select>
+    <button (click)="getLayersAsArray()">GET LAYERS</button>
+  </div>
+</div>

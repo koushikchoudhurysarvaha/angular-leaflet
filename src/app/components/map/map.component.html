@@ -1,0 +1,14 @@
+<div class="map-container" id="map"
+     leaflet
+     [leafletOptions]="options"
+     (leafletMapReady)="onMapReady($event)"
+     (leafletMapZoomEnd)="onMapZoomEnd($event)"
+>
+    <div
+        leafletDraw
+        [leafletDrawOptions]="drawOptions"
+        (leafletDrawCreated)="onDrawCreate($event.layer)"
+    >
+
+    </div>
+</div>
